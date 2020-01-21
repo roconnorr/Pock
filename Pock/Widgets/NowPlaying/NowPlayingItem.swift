@@ -14,5 +14,6 @@ class NowPlayingItem {
     public var title:               String?
     public var album:               String?
     public var artist:              String?
+    public var albumArt:            NSImage?
     public var isPlaying:           Bool = false
 }

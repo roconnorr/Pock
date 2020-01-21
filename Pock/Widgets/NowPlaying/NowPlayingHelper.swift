@@ -79,6 +79,13 @@ class NowPlayingHelper {
             self?.nowPlayingItem.title  = info?[kMRMediaRemoteNowPlayingInfoTitle]  as? String
             self?.nowPlayingItem.album  = info?[kMRMediaRemoteNowPlayingInfoAlbum]  as? String
             self?.nowPlayingItem.artist = info?[kMRMediaRemoteNowPlayingInfoArtist] as? String
+            
+            if let artworkData = info?[kMRMediaRemoteNowPlayingInfoArtworkData] as? Data {
+                self?.nowPlayingItem.albumArt = NSImage(data: artworkData)
+            } else {
+                self?.nowPlayingItem.albumArt = nil
+            }
+            
             if info == nil {
                 self?.nowPlayingItem.isPlaying = false
             }
